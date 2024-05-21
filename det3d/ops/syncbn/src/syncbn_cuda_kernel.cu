@@ -6,7 +6,7 @@
 #include <math.h>
 
 #include <THC/THCDeviceUtils.cuh>
-#include <THC/THCGeneral.h>
+// #include <THC/THCGeneral.h>
 #include <ATen/ATen.h>
 #include <ATen/AccumulateType.h>
 #include <ATen/cuda/CUDAContext.h>
@@ -480,7 +480,7 @@ std::vector<at::Tensor> batch_norm_collect_statistics_cuda(
                 exs.packed_accessor<accscalar_t, 1, at::RestrictPtrTraits, int64_t>());
         }
     }));
-    THCudaCheck(cudaGetLastError());
+    AT_CUDA_CHECK(cudaGetLastError());
     return {ex, exs};
 }
 
@@ -529,7 +529,7 @@ at::Tensor batch_norm_transform_input_cuda(
                 eps);
         }
     }));
-    THCudaCheck(cudaGetLastError());
+    AT_CUDA_CHECK(cudaGetLastError());
     return output_reshaped.view(input.sizes());
 }
 
@@ -587,7 +587,7 @@ std::vector<at::Tensor> batch_norm_collect_grad_statistics_cuda(
                 cf);
         }
     }));
-    THCudaCheck(cudaGetLastError());
+    AT_CUDA_CHECK(cudaGetLastError());
     return {grad_weight, grad_bias, grad_ex, grad_exs};
 }
 
@@ -686,6 +686,6 @@ at::Tensor batch_norm_input_backward_cuda(
                 eps);
         }
     }));
-    THCudaCheck(cudaGetLastError());
+    AT_CUDA_CHECK(cudaGetLastError());
     return grad_input;
 }

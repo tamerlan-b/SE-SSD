@@ -4,6 +4,7 @@
 // must include pybind11/stl.h if using containers in STL in arguments.
 #include <pybind11/stl.h>
 #include <pybind11/numpy.h>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <boost/geometry.hpp>

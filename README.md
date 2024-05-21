@@ -33,6 +33,10 @@ Test Split: [Submission link](http://www.cvlibs.net/datasets/kitti/eval_object_d
 
 You may download the trained student model [here](https://drive.google.com/file/d/1M2nP_bGpOy0Eo90xWFoTIUkjhdw30Pjs/view?usp=sharing), which is trained on the train split (3712 samples).
 
+
+## Software
+This branch was updated to work properly with CUDA 11.7 and pytorch 2.0.1
+
 ## Pipeline
 
 ![pipeline](https://github.com/Vegeta2020/SE-SSD/blob/master/pictures/pipeline.png)

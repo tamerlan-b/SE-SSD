@@ -1,7 +1,7 @@
 #include <ATen/ATen.h>
 #include <ATen/cuda/CUDAContext.h>
 
-#include <THC/THC.h>
+// #include <THC/THC.h>
 #include <THC/THCAtomics.cuh>
 #include <THC/THCDeviceUtils.cuh>
 
@@ -120,7 +120,7 @@ int align_feature_cuda_forward_launcher(const at::Tensor data,
                    size, bottom_data, bottom_weight, weight_height, weight_width,
                    N, C, Size_Weight, H, W, top_data);
         }));
-    THCudaCheck(cudaGetLastError());
+    AT_CUDA_CHECK(cudaGetLastError());
     return 1;
 }
 
